@@ -1,14 +1,14 @@
 {
   "compilerOptions": {
-    "module": "ESNext",
-    "moduleResolution": "bundler",
+    "module": "CommonJS",
+    "moduleResolution": "node",
     "target": "ES2023",
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
     "outDir": "dist",
+    "ignoreDeprecations": "6.0",
     "rootDir": "./src",
-    "verbatimModuleSyntax": true
   },
   "include": ["src"]
 }
