@@ -55,9 +55,9 @@ To ensure highly predictable integration for any frontend consumers, the API imp
     CLOUDINARY_API_SECRET="your-api-secret"
     ```
 
-3.  **Run Database Migrations:**
+3.  **Generate Prisma client:**
     ```bash
-    npx prisma migrate dev
+    npx prisma generate
     ```
 
 4.  **Start Development Server:**
@@ -65,6 +65,24 @@ To ensure highly predictable integration for any frontend consumers, the API imp
     npm run dev
     ```
     *Build for production with `npm run build` and start with `npm start`.*
+
+---
+
+## Troubleshooting
+
+### Better-SQLite3 Native Bindings Error
+If you clone this project on a new PC or switch Node.js versions, you might encounter an error stating `Error: Could not locate the bindings file` for `better-sqlite3`. This happens because `better-sqlite3` uses native C++ bindings compiled specifically for your operating system and Node version.
+
+**To fix this, run:**
+```bash
+npm rebuild better-sqlite3
+```
+If that fails (due to missing C++ build tools on Windows), completely wipe and reinstall dependencies:
+```bash
+rm -rf node_modules
+rm package-lock.json
+npm install
+```
 
 ---
 
