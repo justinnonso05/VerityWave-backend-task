@@ -16,7 +16,12 @@ Instead of persisting temporary files to the disk and needing a cron job or clea
 ### 3. External API for Storage & Optimization (Cloudinary)
 Cloudinary is leveraged as an external Blob Storage and Optimization layer. Its `quality='auto', fetch_format='auto'` transforms are utilized during the upload stream. For videos, Cloudinary entirely shoulders the optimization process. This handles the complex problem of adaptive bitrate streaming and scalable video storage without custom local infrastructure overhead.
 
-### 4. Database Toolkit
+### 4. Graceful Fallbacks (Silent Failures)
+The primary objective of the API is to **analyze** the file (generating a report score and recording it). Thus, media optimization and upload phases are built to fail gracefully:
+*   **Image Compression Failure:** If `sharp` fails due to unsupported codecs or corrupted headers, the system catches the error and silently attempts to write the raw, uncompressed buffer to the local disk instead, saving the original file so the analysis isn't disrupted.
+*   **Video Cloudinary Failure:** If Cloudinary limits are reached, network timeouts occur, or credentials expire, the API avoids returning a `500 Server Error`. Instead, it skips the video persistence phase, sets the file path to explicitly indicate the failure (`cloudinary_upload_failed`), and still yields a successful Mock Analysis response to the client. This guarantees critical business logic (assessment generation) works independently of external vendor limits.
+
+### 5. Database Toolkit
 Prisma ORM is used with SQLite (via `better-sqlite3`). Prisma provides strong typings and migrations out of the box, making database interactions extremely robust down to the service layer.
 
 ---
@@ -61,6 +66,9 @@ Prisma ORM is used with SQLite (via `better-sqlite3`). Prisma provides strong ty
 ---
 
 ## API Documentation
+
+**Postman Documentation Reference:**  
+[VerityWave API Documentation (Postman)](https://documenter.getpostman.com/view/36406749/2sBXqMHeWr)
 
 ### 1. Upload and Analyze Media
 
