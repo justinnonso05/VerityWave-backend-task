@@ -78,14 +78,19 @@ Uploads a media file (Image or Video), optimizes it according to the smart-split
 **Success Response (200 OK or 201 Created):**
 ```json
 {
-  "id": 1,
-  "fileName": "example.png",
-  "fileType": "image/png",
-  "score": 75,
-  "isAIGenerated": true,
-  "filePath": "https://res.cloudinary.com/.../example.png",
-  "createdAt": "2026-05-06T12:00:00.000Z",
-  "updatedAt": "2026-05-06T12:00:00.000Z"
+    "success": true,
+    "message": "File analyzed successfully",
+    "data": [
+        {
+            "id": "9fc5c058-f8d1-40b1-b254-b9a98799ae36",
+            "fileName": "8Kwallpaper_uislides_seyiezekiel70.jpg",
+            "fileType": "image/jpeg",
+            "score": 41,
+            "isAIGenerated": false,
+            "filePath": "compressed-1777789154773-8Kwallpaper_uislides_seyiezekiel70.jpg",
+            "createdAt": "2026-05-03T06:19:14.897Z"
+        }
+    ]
 }
 ```
 
@@ -100,26 +105,82 @@ Retrieves a chronologically ordered list (newest first) of all past uploaded med
 
 **Success Response (200 OK):**
 ```json
-[
-  {
-    "id": 1,
-    "fileName": "example.png",
-    "fileType": "image/png",
-    "score": 75,
-    "isAIGenerated": true,
-    "filePath": "https://res.cloudinary.com/.../example.png",
-    "createdAt": "2026-05-06T12:00:00.000Z",
-    "updatedAt": "2026-05-06T12:00:00.000Z"
-  },
-  {
-    "id": 2,
-    "fileName": "video.mp4",
-    "fileType": "video/mp4",
-    "score": 30,
-    "isAIGenerated": false,
-    "filePath": "https://res.cloudinary.com/.../video.mp4",
-    "createdAt": "2026-05-05T14:30:00.000Z",
-    "updatedAt": "2026-05-05T14:30:00.000Z"
-  }
-]
+{
+    "success": true,
+    "message": "History retrieved successfully",
+    "data": [
+        {
+            "id": "e12f193f-72aa-4d31-becd-b913677ac9c2",
+            "fileName": "ChatGPT - Landmark - Google Chrome 2025-10-11 21-47-41.mp4",
+            "fileType": "video/mp4",
+            "score": 0,
+            "isAIGenerated": false,
+            "filePath": "https://res.cloudinary.com/dpyxbvcyl/video/upload/v1777889610/veritywave_test/sa5xxmjmaskx83ewpthj.mp4",
+            "createdAt": "2026-05-04T10:13:34.207Z"
+        },
+        {
+            "id": "536848ef-ce9c-4c1a-bdfa-64cb6ac9b7e9",
+            "fileName": "vsdc-sr 2025-01-24 18-50-25.mp4",
+            "fileType": "video/mp4",
+            "score": 4,
+            "isAIGenerated": false,
+            "filePath": "compressed-1777790656835-vsdc-sr 2025-01-24 18-50-25.mp4",
+            "createdAt": "2026-05-03T06:44:34.465Z"
+        },
+        {
+            "id": "87971fcd-4d7c-46ba-93b8-de710c12c7eb",
+            "fileName": "Deploy a Django web app to Python Anywhere FREE_1080pFHR.mp4",
+            "fileType": "video/mp4",
+            "score": 45,
+            "isAIGenerated": false,
+            "filePath": "compressed-1777789545500-Deploy a Django web app to Python Anywhere FREE_1080pFHR.mp4",
+            "createdAt": "2026-05-03T06:25:45.599Z"
+        },
+        {
+            "id": "cac2c27e-fddf-4338-ae06-62a81b4d78dc",
+            "fileName": "Deploy a Django web app to Python Anywhere FREE_1080pFHR.mp4",
+            "fileType": "video/mp4",
+            "score": 16,
+            "isAIGenerated": false,
+            "filePath": "compressed-1777789540115-Deploy a Django web app to Python Anywhere FREE_1080pFHR.mp4",
+            "createdAt": "2026-05-03T06:25:40.215Z"
+        },
+        {
+            "id": "8da476c9-aafb-4c01-9ee0-15173eee57f3",
+            "fileName": "Deploy a Django web app to Python Anywhere FREE_1080pFHR.mp4",
+            "fileType": "video/mp4",
+            "score": 54,
+            "isAIGenerated": false,
+            "filePath": "compressed-1777789535017-Deploy a Django web app to Python Anywhere FREE_1080pFHR.mp4",
+            "createdAt": "2026-05-03T06:25:35.111Z"
+        },
+        {
+            "id": "f658787f-13b7-4d25-8cec-e1e3c1c68ea7",
+            "fileName": "Deploy a Django web app to Python Anywhere FREE_1080pFHR.mp4",
+            "fileType": "video/mp4",
+            "score": 16,
+            "isAIGenerated": false,
+            "filePath": "compressed-1777789529218-Deploy a Django web app to Python Anywhere FREE_1080pFHR.mp4",
+            "createdAt": "2026-05-03T06:25:29.325Z"
+        },
+        {
+            "id": "9714eeb8-54f6-4a80-9f84-351dcf2110e1",
+            "fileName": "Deploy a Django web app to Python Anywhere FREE_1080pFHR.mp4",
+            "fileType": "video/mp4",
+            "score": 13,
+            "isAIGenerated": false,
+            "filePath": "compressed-1777789496611-Deploy a Django web app to Python Anywhere FREE_1080pFHR.mp4",
+            "createdAt": "2026-05-03T06:24:58.252Z"
+        },
+        {
+            "id": "9fc5c058-f8d1-40b1-b254-b9a98799ae36",
+            "fileName": "8Kwallpaper_uislides_seyiezekiel70.jpg",
+            "fileType": "image/jpeg",
+            "score": 41,
+            "isAIGenerated": false,
+            "filePath": "compressed-1777789154773-8Kwallpaper_uislides_seyiezekiel70.jpg",
+            "createdAt": "2026-05-03T06:19:14.897Z"
+        }
+    ]
+}
 ```
