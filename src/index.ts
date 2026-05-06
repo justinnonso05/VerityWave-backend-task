@@ -18,5 +18,5 @@ app.get('/', (req, res) => {
 app.use(errorHandler);
 
 app.listen(PORT, () => {
-  console.log(`🚀 VerityWave Backend active on http://localhost:${PORT}`);
+  console.log(`>> VerityWave Backend active on http://localhost:${PORT}`);
 });
