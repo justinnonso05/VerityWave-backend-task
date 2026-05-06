@@ -24,6 +24,9 @@ The primary objective of the API is to **analyze** the file (generating a report
 ### 5. Database Toolkit
 Prisma ORM is used with SQLite (via `better-sqlite3`). Prisma provides strong typings and migrations out of the box, making database interactions extremely robust down to the service layer.
 
+### 6. Standardized API Response Envelope
+To ensure highly predictable integration for any frontend consumers, the API implements a standardized uniform JSON envelope. It utilizes a custom `ApiResponse` wrapper for successes and an `ApiError` class combined with middleware for failures. Every endpoint guarantees a `success` boolean, a human-readable `message`, and an optional `data` payload or errors trace. This design simplifies client-side parsing and global error handling dramatically.
+
 ---
 
 ## Technical Stack
