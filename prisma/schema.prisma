@@ -1,0 +1,18 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model Analysis {
+  id           String   @id @default(uuid())
+  fileName     String
+  fileType     String
+  score        Int
+  isAIGenerated Boolean
+  filePath     String
+  createdAt    DateTime @default(now())
+}
